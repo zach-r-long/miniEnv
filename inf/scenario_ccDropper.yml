@@ -15,13 +15,13 @@ spec:
       metadata:
         cc_hosts:
           - hostname: "*"   
-            agent_path: /home/ubuntu/sandia/ccDropper/agents
+            agent_path: /phenix/userdata/ccDropper/agents
             agent: miniccc
             auto_start: true
             service_type: sysinitv
             agent_args: "-parent 172.16.10.254"
           - hostname: site_A_server
-            agent_path: /home/ubuntu/sandia/ccDropper/agents 
+            agent_path: /phenix/userdata/ccDropper/agents 
             agent: miniccc
             auto_start: true
             service_type: systemd
