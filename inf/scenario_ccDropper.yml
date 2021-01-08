@@ -14,18 +14,28 @@ spec:
     - name: ccDropper
       metadata:
         cc_hosts:
-          - hostname: "*"   
+          - hostname: site_B_workstation   
             agent_path: /phenix/userdata/ccDropper/agents
             agent: miniccc
             auto_start: true
-            service_type: sysinitv
-            agent_args: "-parent 172.16.10.254"
-          - hostname: site_A_server
+            service_type: systemd
+            agent_args: "-parent 172.16.10.254" 
+          - hostname: "*" 
             agent_path: /phenix/userdata/ccDropper/agents 
             agent: miniccc
             auto_start: true
-            service_type: systemd
+            service_type: sysinitv
             agent_args: "-serial /dev/virtio-ports/cc"
+          - hostname: ".*router" 
+            agent_path: /phenix/userdata/ccDropper/agents 
+            agent: miniccc
+            auto_start: true
+            service_type: custom
+            agent_args: "-serial /dev/virtio-ports/cc"
+            service_custom:
+                    script_path: "/phenix/userdata/ccDropper/custom/vyatta.sh"
+                    inject_path: "/opt/vyatta/etc/config/scripts/vyatta-postconfig-bootup.script"
+
     host:
 #    - name: protonuke
 #      hosts:

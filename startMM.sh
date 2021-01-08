@@ -21,6 +21,6 @@ tmux neww -t mini -n web
 tmux send-keys -t mini:mega "cd minimega" C-m
 tmux send-keys -t mini:web "cd minimega" C-m
 tmux send-keys -t mini:mega "bin/minimega -degree 4 -filepath="/phenix/images" -context ${1} -logfile="miniLog" -v=true" C-m
+tmux send-keys -t mini:mega "cc listen 9002 " C-m
 tmux send-keys -t mini:web "sleep 5 && bin/miniweb -console bin/minimega" C-m
 echo "done"
-
